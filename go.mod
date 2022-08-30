@@ -1,4 +1,4 @@
-module MinMax2
+module MinMax
 
 go 1.19
 
