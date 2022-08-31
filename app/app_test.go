@@ -41,12 +41,12 @@ func TestWorkingWithAnArray(t *testing.T) {
 	}
 
 	//Act
-	for _, value := range testTable {
-		result := WorkingWithAnArray(value.numbers)
-		t.Logf("Test name: %s; Calling arr %d, result %s", value.name, value.numbers, result)
+	for _, tt := range testTable {
+		t.Run(tt.name, func(t *testing.T) {
+			gotResp := WorkingWithAnArray(tt.numbers)
 
-		//Assert
-		assert.Equal(t, value.expected, result,
-			fmt.Sprintf("Incorrect result. Test name: %s; Expected %s, got %s", value.name, value.expected, result))
+			assert.Equal(t, tt.expected, gotResp,
+				fmt.Sprintf("Incorrect result. Test name: %s; Expected %s, got %s", tt.name, tt.expected, gotResp))
+		})
 	}
 }
